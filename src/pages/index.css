@@ -3,14 +3,30 @@ html, body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  background-position: center center;
+  background-image: url('../images/noice@blur.jpg');
+  background-color: #C582A3;
+  background-size: 1920px;
+}
+
+body::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
 }
 
 main {
+  position: relative;
+  display: none;
   width: 100vw;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-position: center center;
   background-image: url('../images/noice@x1.jpg');
   background-image: -webkit-image-set(
     url('../images/noice@x1.jpg') 1x,
@@ -20,7 +36,6 @@ background-image: image-set(
   url('../images/noice@x1.jpg') 1x,
   url('../images/noice@x2.jpg') 2x
   );
-  background-position: center center;
 }
 
 main > svg {
