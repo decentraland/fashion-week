@@ -12,24 +12,25 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: node.js 16
+      - name: node.js 18
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 18
           registry-url: https://registry.npmjs.org/
+          cache : "npm"
 
       - name: installing
-        run: yarn install --immutable --immutable-cache --check-cache
+        run: npm ci
 
       - name: building
-        run: yarn build
+        run: npm run build
         env:
-          NEXT_PUBLIC_SEGMENT_KEY: 'julsNQhiodZFvdOZTXrrPiKmwX4CkHoa'
+          GATSBY_SEGMENT_KEY: 'julsNQhiodZFvdOZTXrrPiKmwX4CkHoa'
 
       - name: publishing documents
         uses: peaceiris/actions-gh-pages@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./out
+          PUBLISH_DIR: ./public
           CNAME: mvfw.org

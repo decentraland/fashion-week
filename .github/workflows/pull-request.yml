@@ -15,14 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: node.js 16
+      - name: node.js 18
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 18
           registry-url: https://registry.npmjs.org/
 
       - name: installing
-        run: yarn install --immutable --immutable-cache --check-cache
+        run: npm ci
 
       - name: building
         run: yarn build

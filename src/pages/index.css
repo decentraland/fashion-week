@@ -1,0 +1,41 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/noice@x1.jpg');
+  background-image: -webkit-image-set(
+    url('../images/noice@x1.jpg') 1x,
+    url('../images/noice@x2.jpg') 2x
+  );
+background-image: image-set(
+  url('../images/noice@x1.jpg') 1x,
+  url('../images/noice@x2.jpg') 2x
+  );
+  background-position: center center;
+}
+
+main > svg {
+  width: 100%;
+  height: auto;
+  max-width: 652px;
+  background-size: contain;
+  background-image: url('../images/mvfw@x1.png');
+  background-image: -webkit-image-set(
+    url('../images/mvfw@x1.png') 1x,
+    url('../images/mvfw@x2.png') 2x
+  );
+  background-image: image-set(
+    url('../images/mvfw@x1.png') 1x,
+    url('../images/mvfw@x2.png') 2x
+    );
+
+}
