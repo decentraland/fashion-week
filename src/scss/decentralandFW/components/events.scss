@@ -68,6 +68,17 @@
           padding: 1em;
           background-color: var(--color-grey);
 
+          > div:first-of-type{
+            font-size: 18px;
+            line-height: 22px;
+            margin-bottom: 0.5em;
+          }
+          > div:last-of-type{
+            font-size: 18px;
+            line-height: 22px;
+            color:var(--color-focus-primary);
+          }
+
           button {
             position: absolute;
             width: 100%;

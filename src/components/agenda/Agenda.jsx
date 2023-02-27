@@ -13,8 +13,6 @@ export const Agenda = () => {
     const startDate = content?.landing.startDate && new Date(content?.landing.startDate);
     const endDate = content?.landing.endDate && new Date(content?.landing.endDate);
 
-    // const agenda = data?.agenda;
-
     const {data} = useContext(DataContext);
     const events = data?.agenda?.data.map(evt => {
             const date = new Date(evt.start_at)
@@ -24,9 +22,14 @@ export const Agenda = () => {
             var year = date.getUTCFullYear();
 
             const dateFormatted = year + '/' + month + '/' + day;
+
+            const minutes = (date.getUTCHours() + "0").substring(0, 2);
+            const hours = (date.getUTCHours() + "0").substring(0, 2);// || "24"; //todo test?
+            const timeUTC = hours + ":" + minutes + " UTC";
             return {
                 ...evt,
                 date,
+                timeUTC,
                 dateFormatted
             }
         }).filter(evt => {
@@ -34,6 +37,8 @@ export const Agenda = () => {
             let isValidDate = date >= startDate && date < endDate;
             return isValidDate;
         }) || []
+
+    console.log({events})
 
     const dates = events?.length && events.reduce((acc, curr) => {
         const {dateFormatted} = curr;
@@ -67,10 +72,11 @@ export const Agenda = () => {
 
                     item.dateFormatted === currentDate ?
                         (<div key={index}>
-                            <h3>{item.location}</h3>
+                            <h3>{item.estate_name}</h3>
                             <h4>{item.name}</h4>
                             <p>{item.description}</p>
-                            <a href={item.link}>{content?.agenda.cta}
+                            <time dateTime={item.start_at}>{item.timeUTC}</time>
+                            <a href={item.url}>{content?.agenda.cta}
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.9585 9.5H15.0418" stroke="#FDC5DB" strokeWidth="1.97403"

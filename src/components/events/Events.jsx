@@ -8,11 +8,41 @@ export const Events = () => {
 
     const content = useContext(ContentContext);
 
+    const contentData = content?.data?.content;
+    const startDate = contentData?.landing.startDate && new Date(contentData?.landing.startDate);
+    const endDate =contentData?.landing.endDate && new Date(contentData?.landing.endDate);
+
     const eventsContent = content?.data?.content?.events;
     const title = eventsContent?.title;
 
     const {data} = useContext(DataContext);
-    const events = data?.agenda?.data || [];
+    const events = data?.agenda?.data.map(evt => {
+        const date = new Date(evt.start_at)
+
+        var month = date.getUTCMonth() + 1; //months from 1-12
+        var day = date.getUTCDate();
+        var year = date.getUTCFullYear();
+
+        const dateFormatted = year + '/' + month + '/' + day;
+
+        const minutes = (date.getUTCHours() + "0").substring(0, 2);
+        const hours = (date.getUTCHours() + "0").substring(0, 2);// || "24"; //todo test?
+        const timeUTC = hours + ":" + minutes + " UTC";
+
+        console.log({coord : evt.coordinates})
+        const coordinate = "(" + evt.coordinates[0] + "," + evt.coordinates[1] + ")";
+        return {
+            ...evt,
+            coordinate,
+            date,
+            timeUTC,
+            dateFormatted
+        }
+    }).filter(evt => {
+        const {date} = evt;
+        let isValidDate = date >= startDate && date < endDate;
+        return isValidDate;
+    }) || []
 
     const [isOverflowing, setIsOverflowing] = useState(false);
 
@@ -50,9 +80,9 @@ export const Events = () => {
                                 <div></div>
                             </div>
                             <div className={'item__text'}>
-                                <div>{item.title}</div>
-                                <div>{item.type}</div>
-                                <button><a href={item.link} target={'_blank'} rel={'noreferrer'}>{item.cta}</a></button>
+                                <div>{item.name}</div>
+                                <div>{item.coordinate}</div>
+                                {/*<button><a href={item.link} target={'_blank'} rel={'noreferrer'}>{item.cta}</a></button>*/}
                             </div>
                         </div>
                     ))}
