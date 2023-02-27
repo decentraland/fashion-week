@@ -1,0 +1,39 @@
+{
+  "header" : {
+    "agenda" : "Agenda",
+    "maps" : "Maps",
+    "marketplace" : "MarketPlace",
+    "events" : "Events",
+    "partners" : "Partners",
+    "faqs" : "FAQ"
+  },
+  "agenda": {
+    "title": "Agenda",
+    "cta" : "Jump In"
+  },
+  "maps": {
+    "title": "Maps"
+  },
+  "marketplace": {
+    "title": "MarketPlace"
+  },
+  "events": {
+    "title": "Events"
+  },
+  "partners": {
+    "title": "Meet Our Partners"
+  },
+  "faqs" : {
+    "title" : "FAQS"
+  },
+  "footer": {
+    "twitter": "Twitter",
+    "twitterUrl": "https://www.twitter.com",
+    "discord": "Discord",
+    "discordUrl": "https://discord.com",
+    "github": "Github",
+    "githubUrl": "https://github.io",
+    "reddit": "Reddit",
+    "redditUrl": "https://reddit.com"
+  }
+}
