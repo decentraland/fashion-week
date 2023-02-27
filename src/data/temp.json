@@ -18,7 +18,8 @@
     "title": "MarketPlace"
   },
   "events": {
-    "title": "Events"
+    "title": "Events",
+    "cta" : "Jump In"
   },
   "partners": {
     "title": "Meet Our Partners"

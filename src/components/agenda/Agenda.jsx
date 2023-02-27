@@ -38,8 +38,6 @@ export const Agenda = () => {
             return isValidDate;
         }) || []
 
-    console.log({events})
-
     const dates = events?.length && events.reduce((acc, curr) => {
         const {dateFormatted} = curr;
         if (!acc.includes(dateFormatted))

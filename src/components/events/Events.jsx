@@ -29,7 +29,6 @@ export const Events = () => {
         const hours = (date.getUTCHours() + "0").substring(0, 2);// || "24"; //todo test?
         const timeUTC = hours + ":" + minutes + " UTC";
 
-        console.log({coord : evt.coordinates})
         const coordinate = "(" + evt.coordinates[0] + "," + evt.coordinates[1] + ")";
         return {
             ...evt,
@@ -75,14 +74,14 @@ export const Events = () => {
             <div className={'events__items ' + (isOverflowing ? 'scrolling' : '')}>
                 <HorizonalMenu onChange={handleOverflow}>
                     {events.map((item, index) => (
-                        <div key={index} className={'item'}>
+                        <div key={index} className={'item'} onClick={()=> window.location.href = item.url}>
                             <div className={'item__image'}>
-                                <div></div>
+                                <div style={{"backgroundImage" : "url(" + item.image + ")"}}></div>
                             </div>
                             <div className={'item__text'}>
                                 <div>{item.name}</div>
                                 <div>{item.coordinate}</div>
-                                {/*<button><a href={item.link} target={'_blank'} rel={'noreferrer'}>{item.cta}</a></button>*/}
+                                <button><a href={item.url} target={'_blank'} rel={'noreferrer'}>{eventsContent?.cta}</a></button>
                             </div>
                         </div>
                     ))}

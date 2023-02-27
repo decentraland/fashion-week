@@ -18,7 +18,6 @@ exports.sourceNodes = async ({
     let tempJson = await fs.readFile('./src/data/temp.json');
     tempJson = JSON.parse(tempJson);
 
-    console.log({tempJson})
     let {content, res} = await fetchContent();
 
     createNode({

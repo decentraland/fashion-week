@@ -56,6 +56,7 @@ fragment ContentfulContentFragment on ExampleContent{
       }
       events{
         title
+        cta
       }
       partners{
         title
