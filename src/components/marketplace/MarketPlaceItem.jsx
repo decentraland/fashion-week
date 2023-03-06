@@ -12,7 +12,7 @@ export const MarketPlaceItem = ({index, item}) => {
         </div>
         <div className={'item__text'}>
             <div>
-                <h5>{item.metadata.name}</h5>
+                <h5>{item.metadata.wearable.name}</h5>
             </div>
             <div className={'item__creator'}>{item.creator}</div>
             <div className={"item__tag"}>

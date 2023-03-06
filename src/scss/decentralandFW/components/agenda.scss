@@ -127,6 +127,10 @@
       p {
         margin-bottom: 1em;
         font-size: 0.66rem;
+        text-overflow: ellipsis;
+        width: 20em;
+        white-space: nowrap;
+        overflow: hidden;
       }
 
       time {
