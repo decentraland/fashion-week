@@ -14,10 +14,9 @@ import {Partners} from '../components/partners/Partners.jsx';
 import {FAQS} from '../components/faqs/FAQS.jsx';
 import {Footer} from '../components/footer/Footer.jsx';
 import {About} from '../components/about/About.jsx';
-
-import {ContentfulContentFulFragment} from '../query/ContentfulContentFulFragment.js';
 import {DataContext} from '../context/DataContext.js';
 import {fetchMarketPlace} from '../data/marketplace.js';
+import {Teaser} from '../components/Teaser.jsx';
 
 const IndexPage = (props) => {
 
@@ -32,7 +31,6 @@ const IndexPage = (props) => {
     }, [setContent]);
 
     useEffect(() => {
-
         const fetchData = async () => {
 
             let agenda = await fetch('https://events.decentraland.org/api/events')
@@ -60,6 +58,7 @@ const IndexPage = (props) => {
                     <Maps/>
                     <MarketPlace/>
                     <Events/>
+                    <Teaser/>
                     <Partners/>
                     <FAQS/>
                 </main>

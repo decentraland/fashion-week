@@ -7,15 +7,17 @@ export const HorizonalMenu = ({children, onChange})=>{
 
     useEffect(()=> {
             onChange && onChange({isOverflowing});
-    }, [isOverflowing]);
+    }, [isOverflowing, onChange]);
 
 
     useEffect(() => {
         let observer = null;
+        let current = null;
         if(scrollRef?.current !== null && observer === null) {
+            current = scrollRef.current;
             observer = new ResizeObserver(()=>{
-                const offsetWidth = scrollRef?.current.offsetWidth;
-                const containerWidth = scrollRef?.current.parentNode.offsetWidth;
+                const offsetWidth = current.offsetWidth;
+                const containerWidth = current.parentNode.offsetWidth;
                 setIsOverflowing(offsetWidth > containerWidth);
             });
 
@@ -24,9 +26,9 @@ export const HorizonalMenu = ({children, onChange})=>{
         }
 
         return ()=>{
-            if(scrollRef?.current) {
-                observer?.unobserve(scrollRef?.current)
-                observer?.unobserve(scrollRef?.current.parentNode)
+            if(current) {
+                observer?.unobserve(current)
+                observer?.unobserve(current.parentNode)
             }
         }
     }, [scrollRef])

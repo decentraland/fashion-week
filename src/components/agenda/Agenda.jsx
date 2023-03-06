@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useContext, useEffect, useMemo, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {Marquee} from '../general/marquee/Marquee.jsx';
 import {ContentContext} from '../../context/ContentContext.js';
 import ArrowDown from '../svg/ArrowDown.svg';
@@ -38,7 +38,7 @@ export const Agenda = () => {
             return isValidDate;
         }) || []
 
-    const dates = events?.length && events.reduce((acc, curr) => {
+    const dates = events?.reduce((acc, curr) => {
         const {dateFormatted} = curr;
         if (!acc.includes(dateFormatted))
             acc.push(dateFormatted)

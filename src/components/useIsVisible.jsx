@@ -9,7 +9,7 @@ export const useIsVisible = () => {
     useEffect(() => {
         let visible = (entry && entry.isIntersecting);
         setIsVisible(isVisible || visible);
-    }, [entry])
+    }, [entry, isVisible])
 
     return {ref, isVisible};
 }
