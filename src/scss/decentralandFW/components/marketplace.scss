@@ -40,7 +40,6 @@
       gap: 2rem;
 
     > div.item {
-      margin-right: 2rem;
       width: 252px;
       flex: 0 0 auto;
       border-radius: 12px;
@@ -55,7 +54,14 @@
         pointer-events: all;
         cursor: pointer;
 
-
+        img{
+          width:100%;
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
         > div {
           position: absolute;
           top: 0;
@@ -63,15 +69,40 @@
           width: 100%;
           height: 100%;
           background-color: var(--color-focus-primary);
+
+          img{
+            width:100%;
+            height: 100%;
+            object-fit: contain;
+          }
         }
       }
 
       > div.item__text {
-        padding: 1em;
+        padding: 1rem;
         background-color: var(--color-grey);
         pointer-events: none;
 
+        .item__title{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size:18px;
+          span{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-weight: 500;
+            line-height: 1.2em;
+
+            svg{
+              margin-right: 3px;
+            }
+          }
+        }
+
         h5 {
+          font-size: inherit;
           margin-bottom: 0.23em;
         }
 
@@ -83,46 +114,162 @@
           margin-bottom: 1em;
         }
 
-        button.button__tag {
-          //pointer-events: all;
-          cursor: pointer;
-          color: white;
-          border-radius: 8px;
-          text-transform: uppercase;
-          width: 127px;
-          height: 27px;
-          position: relative;
-          overflow: hidden;
+        .item__tags{
           display: flex;
-          justify-content: center;
-          align-items: center;
+          justify-content: space-between;
 
-          a {
+          button.button__tag {
+            //pointer-events: all;
+            cursor: pointer;
+            color: white;
+            border-radius: 8px;
+            text-transform: uppercase;
+            min-width: 127px;
+            height: 27px;
+            padding:0 1em;
             position: relative;
-            z-index: 2;
-          }
-
-          &:after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            lefT: 0;
-            top: 0;
-            opacity: 1;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: var(--color-focus-primary);
+            font-size: 14px;
+            line-height: 17px;
+
+            a {
+              position: relative;
+              z-index: 2;
+            }
+
+            /*  &:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                lefT: 0;
+                top: 0;
+                opacity: 1;
+                background-color: var(--color-focus-primary);
+              }
+
+              &:hover {
+                background-color: black;
+                border: 2px solid white;
+
+                &:after {
+                  transition: opacity 200ms;
+                  opacity: 0.5;
+                }
+              }*/
           }
 
-          &:hover {
-            background-color: black;
-            border: 2px solid white;
+          > div {
 
-            &:after {
-              transition: opacity 200ms;
-              opacity: 0.5;
+            display: flex;
+            gap: 5px;
+
+            .icon{
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: 24px 24px;
+              width: 27px;
+              height: 27px;
+              background-color: #37333d;
+              border-radius: 4px;
+              display: inline-block;
+            }
+
+            .item__type{
+              display: inline-block;
+
+              &.body_shape {
+                background-image: url(/wearables/BodyShapeIcon.svg);
+              }
+
+              &.earring {
+                background-image: url(/wearables/EarringsIcon.svg);
+              }
+
+              &.eyebrows {
+                background-image: url(/wearables/EyebrowIcon.svg);
+              }
+
+              &.eyes {
+                background-image: url(/wearables/EyesIcon.svg);
+              }
+
+              &.eyewear {
+                background-image: url(/wearables/EyewearIcon.svg);
+              }
+
+              &.facial_hair {
+                background-image: url(/wearables/FacilHairIcon.svg);
+              }
+
+              &.feet {
+                background-image: url(/wearables/FeetIcon.svg);
+              }
+
+              &.hair {
+                background-image: url(/wearables/HairIcon.svg);
+              }
+
+              &.hat {
+                background-image: url(/wearables/HatIcon.svg);
+              }
+
+              &.helmet {
+                background-image: url(/wearables/HelmetIcon.svg);
+              }
+
+              &.lower_body {
+                background-image: url(/wearables/LowerBodyIcon.svg);
+              }
+
+              &.mask {
+                background-image: url(/wearables/MaskIcon.svg);
+              }
+
+              &.mouth {
+                background-image: url(/wearables/MouthIcon.svg);
+              }
+
+              &.tiara {
+                background-image: url(/wearables/TiaraIcon.svg);
+              }
+
+              &.top_head {
+                background-image: url(/wearables/TopHeadIcon.svg);
+              }
+
+              &.upper_body {
+                background-image: url(/wearables/UpperBodyIcon.svg);
+              }
+
+              &.skin {
+                background-image: url(/wearables/SkinIcon.svg);
+              }
+
+            }
+
+            .item__bodyShape{
+
+              &.BaseMale{
+                background-image: url(/wearables/MaleIcon.svg);
+              }
+
+              &.BaseFemale{
+                background-image: url(/wearables/FemaleIcon.svg);
+              }
+
+              &.BaseFemale.BaseFemale{
+                background-image: url(/wearables/UnisexIcon.svg);
+              }
+
             }
           }
         }
+
 
         button.button_link {
           pointer-events: all;
