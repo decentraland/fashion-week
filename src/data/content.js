@@ -19,6 +19,10 @@ const getContentfulClient = () => {
     return contentfulClient;
 };
 
+/**
+ * Fetches and formats (simplifies) data from contentful
+ * @returns {Promise<{res: *, content: *}>}
+ */
 exports.fetchContent = async ()=> {
     let contentfulClient = getContentfulClient();
     const res = await contentfulClient.getEntries({'sys.contentType.sys.id[in]': 'website_landing,website_about,website_faq,website_menu,website_metadata,website_partner'});

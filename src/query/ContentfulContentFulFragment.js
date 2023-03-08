@@ -53,6 +53,7 @@ fragment ContentfulContentFragment on ExampleContent{
       }
       marketplace{
         title
+        cta
       }
       events{
         title

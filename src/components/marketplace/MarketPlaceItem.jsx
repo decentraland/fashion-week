@@ -1,18 +1,16 @@
 import * as React from 'react';
-import {useState} from 'react';
 
 export const MarketPlaceItem = ({index, item}) => {
 
-    const [isOverImage, setIsOverImage] = useState(false);
+    console.log({item});
 
     return (
-        <div key={index} className={'item ' + (isOverImage ? ' over-image' : '')}>
-            <div className={'item__image'} onMouseEnter={() => setIsOverImage(true)}
-                 onMouseLeave={() => setIsOverImage(false)}>
+        <div key={index} className={'marketplace-item'}>
+            <div className={'marketplace-item__image'}>
                 <img src={item.image}/>
             </div>
-            <div className={'item__text'}>
-                <div className={'item__title'}>
+            <div className={'marketplace-item__text'}>
+                <div className={'marketplace-item__title'}>
                     <h5>{item.metadata.wearable.name}</h5>
                     <span>
                         <svg width="18" height="18" viewBox="0 0 18 18"
@@ -23,12 +21,12 @@ export const MarketPlaceItem = ({index, item}) => {
                         </svg>
                         {Math.round(item.price / Math.pow(10, 18))}</span>
                 </div>
-                <div className={'item__creator'}>Polygon</div>
-                <div className={'item__tags'}>
+                <div className={'marketplace-item__creator'}>Polygon</div>
+                <div className={'marketplace-item__tags'}>
                     <button className={'button__tag'}>{item.metadata.wearable.rarity}</button>
                     <div>
-                        <span className={'icon item__type ' + item.metadata.wearable.category}></span>
-                        <span className={'icon item__bodyShape ' + (item.metadata.wearable.bodyShapes?.join(' '))}></span>
+                        <span className={'icon marketplace-item__type ' + item.metadata.wearable.category}></span>
+                        <span className={'icon marketplace-item__bodyShape ' + (item.metadata.wearable.bodyShapes?.join(' '))}></span>
                     </div>
                 </div>
                 <button className={"button_link"}><a href={item.uri}>{item.cta}</a></button>

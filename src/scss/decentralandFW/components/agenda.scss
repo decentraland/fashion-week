@@ -40,35 +40,35 @@
       border: 3px white solid;
       color: white;
       cursor: pointer;
-      position:relative;
+      position: relative;
       overflow: hidden;
 
 
-      &:before{
-        content : "";
-        width:100%;
+      &:before {
+        content: "";
+        width: 100%;
         height: 100%;
-        position:absolute;
-        top:0;
-        lefT:0;
-        transition:opacity 200ms;
-        opacity : 0;
+        position: absolute;
+        top: 0;
+        lefT: 0;
+        transition: opacity 200ms;
+        opacity: 0;
         background-color: var(--color-focus-primary);
         //background-color: red;
       }
 
-      &:after{
-        content : attr(data-date);
-        width:100%;
+      &:after {
+        content: attr(data-date);
+        width: 100%;
         height: 100%;
-        position:absolute;
-        top:0;
-        lefT:0;
+        position: absolute;
+        top: 0;
+        lefT: 0;
         font-size: 1.25rem;
         display: flex;
         color: var(--color-black);
-        opacity : 0;
-        transition:opacity 200ms;
+        opacity: 0;
+        transition: opacity 200ms;
         align-items: center;
         justify-content: center;
         text-transform: uppercase;
@@ -80,18 +80,23 @@
 
       &.active {
         border: 3px var(--color-focus-primary) solid;
-        &:after{
-          opacity : 1;
+
+        &:after {
+          opacity: 1;
         }
-        &:before{
-          opacity : 1;
+
+        &:before {
+          opacity: 1;
         }
+
         pointer-events: none;
       }
 
-      &:hover{
-        &:before{
-          opacity : 0.5;
+      @media (hover: hover) {
+        &:hover {
+          &:before {
+            opacity: 0.5;
+          }
         }
       }
     }
@@ -159,10 +164,12 @@
           }
         }
 
-        &:hover{
-          svg{
-            transition:transform 200ms;
-            transform: translate(5px, 0);
+        @media (hover: hover) {
+          &:hover {
+            svg {
+              transition: transform 200ms;
+              transform: translate(5px, 0);
+            }
           }
         }
       }

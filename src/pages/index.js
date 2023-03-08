@@ -18,6 +18,8 @@ import {DataContext} from '../context/DataContext.js';
 import {fetchMarketPlace} from '../data/marketplace/marketplace.js';
 import {Teaser} from '../components/Teaser.jsx';
 
+import {ContentfulContentFulFragment} from '../query/ContentfulContentFulFragment.js';
+
 const IndexPage = (props) => {
 
     const [content, setContent] = useState(null);

@@ -8,7 +8,7 @@
     max-width: var(--max-width);
     margin: 0 auto;
     display: flex;
-    padding : 0 var(--gutter);
+    padding: 0 var(--gutter);
     justify-content: space-between;
     flex-direction: row;
     position: relative;
@@ -16,7 +16,7 @@
     h2 {
       text-align: center;
       padding: 1em 0;
-      margin:0 auto;
+      margin: 0 auto;
     }
   }
 
@@ -61,7 +61,7 @@
             width: 100%;
             height: 100%;
             background-color: var(--color-focus-primary);
-            background-size:cover;
+            background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
           }
@@ -71,16 +71,16 @@
           padding: 1em;
           background-color: var(--color-grey);
 
-          > div:first-of-type{
+          > div:first-of-type {
             font-size: 18px;
             line-height: 22px;
             margin-bottom: 0.5em;
           }
 
-          > div:last-of-type{
+          > div:last-of-type {
             font-size: 18px;
             line-height: 22px;
-            color:var(--color-focus-primary);
+            color: var(--color-focus-primary);
           }
 
           button {
@@ -107,13 +107,15 @@
           }
         }
 
-        &:hover {
-          border: 4px solid #FFFFFF;
+        @media (hover: hover) {
+          &:hover {
+            border: 4px solid #FFFFFF;
 
-          div.item__text {
-            button {
-              opacity: 1;
+            div.item__text {
+              button {
+                opacity: 1;
 
+              }
             }
           }
         }

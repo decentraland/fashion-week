@@ -10,7 +10,12 @@ export const MarketPlace = () => {
     const content = useContext(ContentContext);
 
     const data = useContext(DataContext);
-    const marketPlace = data?.data?.marketPlace;
+    const marketPlace = data?.data?.marketPlace.map(item => {
+        return {
+            ...item,
+            cta : content?.data?.content?.marketplace?.cta
+        }
+    });
 
     const [isOverflowing, setIsOverflowing] = useState(false);
 

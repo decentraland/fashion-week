@@ -15,7 +15,8 @@
     "title": "Maps"
   },
   "marketplace": {
-    "title": "MarketPlace"
+    "title": "MarketPlace",
+    "cta" : "Jump In"
   },
   "events": {
     "title": "Events",
