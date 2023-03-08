@@ -5,9 +5,6 @@ export const MarketPlaceItem = ({index, item}) => {
 
     const [isOverImage, setIsOverImage] = useState(false);
 
-    const bodyShapes = item?.metadata?.wearable?.bodyShapes?.join(' ');
-
-
     return (
         <div key={index} className={'item ' + (isOverImage ? ' over-image' : '')}>
             <div className={'item__image'} onMouseEnter={() => setIsOverImage(true)}
@@ -34,7 +31,7 @@ export const MarketPlaceItem = ({index, item}) => {
                         <span className={'icon item__bodyShape ' + (item.metadata.wearable.bodyShapes?.join(' '))}></span>
                     </div>
                 </div>
-                {/*<button className={"button_link"}><a href={item.link}>{item.cta}</a></button>*/}
+                <button className={"button_link"}><a href={item.uri}>{item.cta}</a></button>
             </div>
         </div>)
 }

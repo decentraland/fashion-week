@@ -15,7 +15,7 @@ import {FAQS} from '../components/faqs/FAQS.jsx';
 import {Footer} from '../components/footer/Footer.jsx';
 import {About} from '../components/about/About.jsx';
 import {DataContext} from '../context/DataContext.js';
-import {fetchMarketPlace} from '../data/marketplace.js';
+import {fetchMarketPlace} from '../data/marketplace/marketplace.js';
 import {Teaser} from '../components/Teaser.jsx';
 
 const IndexPage = (props) => {
