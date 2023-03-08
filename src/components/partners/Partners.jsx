@@ -8,11 +8,6 @@ export const Partners = () => {
 
     const {data} = useContext(ContentContext);
     const partners = data?.partner;
-    const items = (partners && partners.length) ? Array.apply(null, Array(25)).map((el, i) => {
-        return partners[i % partners.length];
-    }) : [];
-
-    //todo missing title from cms
 
     return (
         <section id={'partners'}>
@@ -21,7 +16,7 @@ export const Partners = () => {
             </Marquee>
 
             <div className={'partners__grid'}>
-                {items.map((item,index) =>(
+                {partners?.map((item,index) =>(
                     <div key={index} style={{backgroundImage : 'url("' +  item.image.fields.file.url + '")'}}></div>
                 ))}
             </div>
