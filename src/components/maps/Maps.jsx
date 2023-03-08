@@ -7,7 +7,7 @@ import {useContext} from 'react';
 export const Maps = () => {
 
     const {data} = useContext(ContentContext);
-    const maps = data?.content?.maps;
+    const maps = data?.maps;
     const title = maps?.title;
 
     return (

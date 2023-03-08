@@ -8,11 +8,11 @@ export const Events = () => {
 
     const content = useContext(ContentContext);
 
-    const contentData = content?.data?.content;
+    const contentData = content?.data;
     const startDate = contentData?.landing.startDate && new Date(contentData?.landing.startDate);
     const endDate =contentData?.landing.endDate && new Date(contentData?.landing.endDate);
 
-    const eventsContent = content?.data?.content?.events;
+    const eventsContent = content?.data?.events;
     const title = eventsContent?.title;
 
     const {data} = useContext(DataContext);
@@ -62,7 +62,7 @@ export const Events = () => {
             <div className={'events__title'}>
 
                 {isOverflowing && (
-                    <button name={'scroll-left'} onClick={()=>handleScrollTo("left")}>
+                    <button className={"button__arrow"} name={'scroll-left'} onClick={()=>handleScrollTo("left")}>
                         <svg width="14" height="26" viewBox="0 0 14 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13 25L1 13L13 1" stroke="white" strokeWidth="2" strokeLinejoin="round"/>
                         </svg>
@@ -72,12 +72,13 @@ export const Events = () => {
                 <h2>{title}</h2>
 
                 {isOverflowing && (
-                    <button name={'scroll-right'} onClick={()=>handleScrollTo("right")}>
+                    <button className={"button__arrow"} name={'scroll-right'} onClick={()=>handleScrollTo("right")}>
                         <svg width="14" height="26" viewBox="0 0 14 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 1L13 13L1 25" stroke="white" strokeWidth="2" strokeLinejoin="round"/>
                         </svg>
                     </button>
                 )}
+
             </div>
             <div className={'events__items ' + (isOverflowing ? 'scrolling' : '')} ref={scrollRef}>
                 <HorizonalMenu onChange={handleOverflow}>

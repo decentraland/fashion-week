@@ -2,16 +2,16 @@ import {graphql, useStaticQuery} from 'gatsby';
 
 export const useSiteMetadata = () => {
     const data = useStaticQuery(graphql`
-    query {
-      example {
-        content{
-          metadata{
-            title
-          }
+    {
+      contentfulJson {
+        metadata {
+          title
+          description
+          image
         }
       }
     }
   `)
 
-    return data.example.content.metadata;
+    return data.contentfulJson.metadata;
 }

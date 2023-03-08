@@ -6,7 +6,7 @@ const isBrowser = typeof window !== 'undefined'
 export const Footer = () => {
 
     const {data} = useContext(ContentContext);
-    const footer = data?.content?.footer;
+    const footer = data?.footer;
 
     const handleClick = (e, id) => {
         e.preventDefault();

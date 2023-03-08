@@ -7,8 +7,8 @@ import ArrowDown from '../svg/ArrowDown.svg';
 export const FAQS = () => {
 
     const {data} = useContext(ContentContext);
-    const faqs = data?.content?.faq;
-    const title = data?.content?.faqs?.title; //todo missing from cms
+    const faqs = data?.faq;
+    const title = data?.faqs?.title; //todo missing from cms
     const items = faqs || [];
 
     const [itemsActive, setItemsActive] = useState([]);

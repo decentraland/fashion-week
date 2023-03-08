@@ -8,8 +8,7 @@ const isBrowser = typeof window !== "undefined"
 export const Header = () => {
 
     const {data} = useContext(ContentContext);
-    const content = data?.content;
-    const header = content?.header;
+    const header = data?.header;
 
     const [showOverlay, setShowOverlay] = useState(false);
 

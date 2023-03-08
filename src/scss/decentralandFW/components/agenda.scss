@@ -113,10 +113,14 @@
     max-width: var(--max-width);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 8em;
+    gap: 2em 8em;
     color: white;
     justify-content: space-evenly;
     justify-items: center;
+
+    @include for-tablet-landscape-up{
+
+    }
 
     > div {
       justify-self: start;

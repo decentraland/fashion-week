@@ -9,34 +9,35 @@ export const Agenda = () => {
 
     const contentData = useContext(ContentContext);
 
-    const content = contentData?.data?.content;
+    const content = contentData?.data;
     const startDate = content?.landing.startDate && new Date(content?.landing.startDate);
     const endDate = content?.landing.endDate && new Date(content?.landing.endDate);
 
     const {data} = useContext(DataContext);
     const events = data?.agenda?.data.map(evt => {
-            const date = new Date(evt.start_at)
+        const date = new Date(evt.start_at)
 
-            var month = date.getUTCMonth() + 1; //months from 1-12
-            var day = date.getUTCDate();
-            var year = date.getUTCFullYear();
+        var month = date.getUTCMonth() + 1; //months from 1-12
+        var day = date.getUTCDate();
+        var year = date.getUTCFullYear();
 
-            const dateFormatted = year + '/' + month + '/' + day;
+        const dateFormatted = year + '/' + month + '/' + day;
 
-            const minutes = (date.getUTCHours() + "0").substring(0, 2);
-            const hours = (date.getUTCHours() + "0").substring(0, 2);// || "24"; //todo test?
-            const timeUTC = hours + ":" + minutes + " UTC";
-            return {
-                ...evt,
-                date,
-                timeUTC,
-                dateFormatted
-            }
-        }).filter(evt => {
-            const {date} = evt;
-            let isValidDate = date >= startDate && date < endDate;
-            return isValidDate;
-        }) || []
+        const minutes = (date.getUTCHours() + '0').substring(0, 2);
+        const hours = (date.getUTCHours() + '0').substring(0, 2);// || "24"; //todo test?
+        const timeUTC = hours + ':' + minutes + ' UTC';
+        return {
+            ...evt,
+            date,
+            timeUTC,
+            dateFormatted
+        }
+    }).filter(evt => {
+        const {date} = evt;
+        let isValidDate = date >= startDate && date < endDate;
+        return isValidDate;
+    }) || []
+
 
     const dates = events?.reduce((acc, curr) => {
         const {dateFormatted} = curr;
@@ -46,6 +47,23 @@ export const Agenda = () => {
     }, []).sort() || []
 
     const [currentDate, setCurrentDate] = useState(dates[0]);
+
+    const eventsGrouped = events?.reduce((arr, evt) => {
+
+        if (evt.dateFormatted === currentDate) {
+            const location = evt.estate_name;
+            if (!arr[location])
+                arr[location] = [];
+
+            arr[location].push(evt);
+        }
+
+        return arr;
+
+    }, {})
+
+    console.log(eventsGrouped);
+
 
     useEffect(() => {
         if (dates && !currentDate) {
@@ -65,16 +83,46 @@ export const Agenda = () => {
                 ))}
             </ul>
             <div className="agenda__events">
+                {Object.keys(eventsGrouped).map((key, index) => (
+                    <div key={index}>
+                        {key !== 'null' &&
+                            <h3>{key}</h3>
+                        }
 
-                {events.map((item, index) => (
+                        {eventsGrouped[key].map((item, itemIndex) => (
+                            <div key={index + "-" + itemIndex}>
+                                <h4>{item.name}</h4>
+                                <p>{item.description}</p>
+                                <time dateTime={item.start_at}>{item.timeUTC}</time>
+                                <a href={item.url}>{content?.agenda?.cta}
+                                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.9585 9.5H15.0418" stroke="#FDC5DB" strokeWidth="1.97403"
+                                              strokeLinejoin="round"/>
+                                        <path d="M9.5 3.9585L15.0417 9.50016L9.5 15.0418" stroke="#FDC5DB"
+                                              strokeWidth="1.97403" strokeLinejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        )
+                        )}
+
+                    </div>
+
+
+                ))}
+
+                {/* {events.map((item, index) => (
 
                     item.dateFormatted === currentDate ?
                         (<div key={index}>
-                            <h3>{item.estate_name}</h3>
+                            {item.estate_name &&
+                                <h3>{item.estate_name}</h3>
+                            }
                             <h4>{item.name}</h4>
                             <p>{item.description}</p>
                             <time dateTime={item.start_at}>{item.timeUTC}</time>
-                            <a href={item.url}>{content?.agenda.cta}
+                            <a href={item.url}>{content?.agenda?.cta}
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.9585 9.5H15.0418" stroke="#FDC5DB" strokeWidth="1.97403"
@@ -86,7 +134,7 @@ export const Agenda = () => {
                         </div>) : null
 
                 ))}
-
+*/}
             </div>
         </section>
     )

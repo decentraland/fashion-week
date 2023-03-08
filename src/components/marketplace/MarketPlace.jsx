@@ -13,7 +13,7 @@ export const MarketPlace = () => {
     const marketPlace = data?.data?.marketPlace.map(item => {
         return {
             ...item,
-            cta : content?.data?.content?.marketplace?.cta
+            cta : content?.data?.marketplace?.cta
         }
     });
 
@@ -37,7 +37,7 @@ export const MarketPlace = () => {
                     </button>
                 )}
 
-                <h2>{content?.data?.content?.marketplace?.title}</h2>
+                <h2>{content?.data?.marketplace?.title}</h2>
 
                 {isOverflowing && (
                     <button name={'scroll-right'}  onClick={()=>scrollRef.current.scrollTo({left : scrollRef.current.parentNode.offsetWidth / 2, behavior : "smooth"})}>

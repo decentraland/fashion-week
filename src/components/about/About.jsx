@@ -3,7 +3,7 @@ import ArrowDown from '../svg/ArrowDown.svg';
 import {ContentContext} from '../../context/ContentContext.js';
 import * as React from 'react';
 import {useContext} from 'react';
-import {useIsVisible} from '../useIsVisible.jsx';
+import {useIsVisible} from '../hooks/useIsVisible.jsx';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 export const About = () => {
@@ -11,8 +11,7 @@ export const About = () => {
     const {ref, isVisible} = useIsVisible();
 
     const {data} = useContext(ContentContext);
-    const content = data?.content;
-    const about = content?.about;
+    const about = data?.about;
     const title = about?.title;
 
     return (

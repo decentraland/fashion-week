@@ -7,8 +7,9 @@ import ArrowDown from '../svg/ArrowDown.svg';
 export const Partners = () => {
 
     const {data} = useContext(ContentContext);
-    const content = data?.content;
-    const partners = content?.partner;
+    const partners = data?.partner;
+
+    console.log({data});
 
     const items = (partners && partners.length) ? Array.apply(null, Array(25)).map((el, i) => {
         return partners[i % partners.length];
@@ -19,7 +20,7 @@ export const Partners = () => {
     return (
         <section id={'partners'}>
             <Marquee>
-                {content?.partners?.title} <ArrowDown/>
+                {data?.partners?.title} <ArrowDown/>
             </Marquee>
 
             <div className={'partners__grid'}>

@@ -16,21 +16,27 @@ import {Footer} from '../components/footer/Footer.jsx';
 import {About} from '../components/about/About.jsx';
 import {DataContext} from '../context/DataContext.js';
 import {fetchMarketPlace} from '../data/marketplace/marketplace.js';
-import {Teaser} from '../components/Teaser.jsx';
-
-import {ContentfulContentFulFragment} from '../query/ContentfulContentFulFragment.js';
+import {Teaser} from '../components/teaser/Teaser.jsx';
+import {fetchContent} from '../data/contentful/content.js';
 
 const IndexPage = (props) => {
+
+    let tempJSON = props.data.contentfulJson;
 
     const [content, setContent] = useState(null);
 
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        //todo temp...
-        let contentJSON = props.data.example;
-        setContent(contentJSON)
-    }, [setContent]);
+
+        if(!content) {
+            fetchContent().then(({content, res}) => {
+                content = {...content, ...tempJSON};
+                setContent(content);
+            });
+        }
+
+    }, [content, setContent, tempJSON]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -50,7 +56,6 @@ const IndexPage = (props) => {
 
     return (
         <DataContext.Provider value={{data}}>
-
             <ContentContext.Provider value={{data: content}}>
                 <Header/>
                 <main>
@@ -75,13 +80,52 @@ export default IndexPage
 export const Head = () => (
     <Meta/>
 )
-
 export const pageQuery = graphql`
+fragment TempContentFragment on ContentfulJson {
+  header {
+    agenda
+    maps
+    marketplace
+    events
+    partners
+    faqs
+  }
+  agenda {
+    title
+    cta
+  }
+  maps {
+    title
+  }
+  marketplace {
+    title
+    cta
+  }
+  events {
+    title
+    cta
+  }
+  faqs {
+    title
+  }
+  partners{
+    title
+  }
+  footer {
+    twitter
+    twitterUrl
+    discord
+    discordUrl
+    reddit
+    redditUrl
+    github
+    githubUrl
+  }
+}
+
 query{
-  example {
-    content{
-      ...ContentfulContentFragment
-    }
+  contentfulJson {
+    ...TempContentFragment
   }
 }
 `

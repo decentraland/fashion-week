@@ -4,9 +4,9 @@ const {createClient} = require('contentful');
 let contentfulClient;
 const getContentfulClient = () => {
     if (!contentfulClient) {
-        let space = process.env.CONTENTFUL_SPACE_ID;
-        let accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
-        let environment = process.env.CONTENTFUL_ENVIRONMENT;
+        let space = "ea2ybdmmn1kv";
+        let accessToken = "WYUosbmqgczptAjEy7NigrNXMazXcU7XNfkhvmpuDEo";
+        let environment = "development";
 
         contentfulClient = createClient({
             space,
@@ -20,7 +20,10 @@ const getContentfulClient = () => {
 };
 
 /**
- * Fetches and formats (simplifies) data from contentful
+ * Fetches and formats (simplifies) data from contentful.
+ *
+ * Any content not represented in the CMS (yet) is contained with in a temp.json file
+ *
  * @returns {Promise<{res: *, content: *}>}
  */
 exports.fetchContent = async ()=> {
