@@ -29,7 +29,7 @@ export const MarketPlaceItem = ({index, item}) => {
                         <span className={'icon marketplace-item__bodyShape ' + (item.metadata.wearable.bodyShapes?.join(' '))}></span>
                     </div>
                 </div>
-                <button className={"button_link"}><a href={item.uri}>{item.cta}</a></button>
+                <button  onClick={()=> window.location.href = item.uri} className={"button_link"}><a href={item.uri}>{item.cta}</a></button>
             </div>
         </div>)
 }

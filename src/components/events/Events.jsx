@@ -90,7 +90,7 @@ export const Events = () => {
                             <div className={'item__text'}>
                                 <div>{item.name}</div>
                                 <div>{item.coordinate}</div>
-                                <button><a href={item.url} target={'_blank'} rel={'noreferrer'}>{eventsContent?.cta}</a></button>
+                                <button onClick={()=> window.location.href = item.url}><a href={item.url} target={'_blank'} rel={'noreferrer'}>{eventsContent?.cta}</a></button>
                             </div>
                         </div>
                     ))}
