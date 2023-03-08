@@ -9,17 +9,19 @@ export const Partners = () => {
     const {data} = useContext(ContentContext);
     const partners = data?.partner;
 
-    return (
-        <section id={'partners'}>
+    return partners.length &&
+        (<section id={'partners'}>
             <Marquee>
                 {data?.partners?.title} <ArrowDown/>
             </Marquee>
 
             <div className={'partners__grid'}>
-                {partners?.map((item,index) =>(
-                    <div key={index} style={{backgroundImage : 'url("' +  item.image.fields.file.url + '")'}}></div>
+                {partners?.map((item, index) => (
+                    <div key={index}
+                         style={{backgroundImage: 'url("' + item.image.fields.file.url + '")'}}></div>
                 ))}
             </div>
-        </section>
-    );
+        </section>)
+
+
 }
