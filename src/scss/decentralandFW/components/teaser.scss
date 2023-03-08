@@ -1,3 +1,5 @@
+@use "sass:math";
+
 #teaser {
 
   display: flex;
@@ -10,10 +12,10 @@
 
   .teaser__video {
     border-radius: 10px;
-    padding-top: percentage(177/312);
+    padding-top: percentage(math.div(177,312));
     @include for-tablet-landscape-up {
-      padding-top: percentage(533/1920);
-      flex: 0 0 percentage(1317/1920);
+      padding-top: percentage(math.div(533,1920));
+      flex: 0 0 percentage(math.div(1317,1920));
     }
     overflow: hidden;
     position:relative;
@@ -29,7 +31,7 @@
 
   .teaser__poster {
 
-    padding-top: percentage(533/ 602);
+    padding-top: percentage(math.div(533, 602));
     @include for-tablet-landscape-up{
       padding: 0;
     }

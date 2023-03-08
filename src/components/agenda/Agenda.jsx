@@ -62,9 +62,6 @@ export const Agenda = () => {
 
     }, {})
 
-    console.log(eventsGrouped);
-
-
     useEffect(() => {
         if (dates && !currentDate) {
             setCurrentDate(dates[0])

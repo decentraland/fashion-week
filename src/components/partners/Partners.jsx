@@ -8,9 +8,6 @@ export const Partners = () => {
 
     const {data} = useContext(ContentContext);
     const partners = data?.partner;
-
-    console.log({data});
-
     const items = (partners && partners.length) ? Array.apply(null, Array(25)).map((el, i) => {
         return partners[i % partners.length];
     }) : [];

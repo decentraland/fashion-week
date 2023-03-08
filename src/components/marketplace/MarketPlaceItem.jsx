@@ -2,12 +2,10 @@ import * as React from 'react';
 
 export const MarketPlaceItem = ({index, item}) => {
 
-    console.log({item});
-
     return (
         <div key={index} className={'marketplace-item'}>
             <div className={'marketplace-item__image'}>
-                <img src={item.image}/>
+                <img src={item.image} alt={item.metadata.wearable.name}/>
             </div>
             <div className={'marketplace-item__text'}>
                 <div className={'marketplace-item__title'}>
