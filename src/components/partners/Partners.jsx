@@ -7,8 +7,7 @@ import ArrowDown from '../svg/ArrowDown.svg';
 export const Partners = () => {
 
     const {data} = useContext(ContentContext);
-    const partners = data?.partner;
-
+    const partners = data?.partner || [];
     return partners.length &&
         (<section id={'partners'}>
             <Marquee>

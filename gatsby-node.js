@@ -27,7 +27,7 @@ exports.sourceNodes = async ({
         children: [],
         internal: {
             type: `Example`,
-            contentDigest: createContentDigest(res),
+            contentDigest: createContentDigest(tempJson),
         },
     })
 }
