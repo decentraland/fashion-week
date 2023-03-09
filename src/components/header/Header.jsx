@@ -30,8 +30,19 @@ export const Header = () => {
               {header?.agenda}
             </a>
           </li>
-          {/* <li><a href={'#maps'} onClick={(e) => handleClick(e, 'maps')}>{header?.maps}</a></li> */}
-          {/* <li><a href={'#marketplace'} onClick={(e) => handleClick(e, 'marketplace')}>{header?.marketplace}</a></li> */}
+          <li style={{ opacity: 0 }}>
+            <a href={"#maps"} onClick={(e) => handleClick(e, "maps")}>
+              {header?.maps}
+            </a>
+          </li>
+          <li style={{ opacity: 0 }}>
+            <a
+              href={"#marketplace"}
+              onClick={(e) => handleClick(e, "marketplace")}
+            >
+              {header?.marketplace}
+            </a>
+          </li>
           <li>
             <a href={"#landing"} onClick={(e) => handleClick(e, "landing")}>
               <LogoSVG />
@@ -42,7 +53,11 @@ export const Header = () => {
               {header?.events}
             </a>
           </li>
-          {/* <li><a href={'#partners'} onClick={(e) => handleClick(e, 'partners')}>{header?.partners}</a></li> */}
+          <li style={{ opacity: 0 }}>
+            <a href={"#partners"} onClick={(e) => handleClick(e, "partners")}>
+              {header?.partners}
+            </a>
+          </li>
           <li>
             <a href={"#faqs"} onClick={(e) => handleClick(e, "faqs")}>
               {header?.faqs}
