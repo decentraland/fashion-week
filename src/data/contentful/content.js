@@ -1,22 +1,21 @@
-const {createClient} = require('contentful');
-
+const { createClient } = require("contentful");
 
 let contentfulClient;
 const getContentfulClient = () => {
-    if (!contentfulClient) {
-        let space = "ea2ybdmmn1kv";
-        let accessToken = "WYUosbmqgczptAjEy7NigrNXMazXcU7XNfkhvmpuDEo";
-        let environment = "development";
+  if (!contentfulClient) {
+    let space = "ea2ybdmmn1kv";
+    let accessToken = "lx1c4KypDoWjLy2WT8vImClZch3EC-2QYrqBeN79XGs";
+    let environment = "master";
 
-        contentfulClient = createClient({
-            space,
-            accessToken,
-            environment,
-            removeUnresolved: true,
-            host: 'cdn.contentful.com'//usePreviewApi ? "preview.contentful.com" : "cdn.contentful.com",
-        });
-    }
-    return contentfulClient;
+    contentfulClient = createClient({
+      space,
+      accessToken,
+      environment,
+      removeUnresolved: true,
+      host: "cdn.contentful.com", //usePreviewApi ? "preview.contentful.com" : "cdn.contentful.com",
+    });
+  }
+  return contentfulClient;
 };
 
 /**
@@ -26,24 +25,25 @@ const getContentfulClient = () => {
  *
  * @returns {Promise<{res: *, content: *}>}
  */
-exports.fetchContent = async ()=> {
-    let contentfulClient = getContentfulClient();
-    const res = await contentfulClient.getEntries({'sys.contentType.sys.id[in]': 'website_landing,website_about,website_faq,website_menu,website_metadata,website_partner'});
-    const content = res.items.reduce((acc, item) => {
+exports.fetchContent = async () => {
+  let contentfulClient = getContentfulClient();
+  const res = await contentfulClient.getEntries({
+    "sys.contentType.sys.id[in]":
+      "website_landing,website_about,website_faq,website_menu,website_metadata,website_partner",
+  });
+  const content = res.items.reduce((acc, item) => {
+    let type = item.sys.contentType.sys.id;
+    type = type.split("_").pop();
 
-        let type = item.sys.contentType.sys.id;
-        type = type.split('_').pop()
+    if (acc[type]) {
+      if (!Array.isArray(acc[type])) acc[type] = [acc[type]];
 
-        if (acc[type]) {
-            if (!Array.isArray(acc[type]))
-                acc[type] = [acc[type]];
+      acc[type].push(item.fields);
+    } else {
+      acc[type] = item.fields;
+    }
 
-            acc[type].push(item.fields)
-        } else {
-            acc[type] = item.fields
-        }
-
-        return acc
-    }, {})
-    return {content, res};
-}
+    return acc;
+  }, {});
+  return { content, res };
+};

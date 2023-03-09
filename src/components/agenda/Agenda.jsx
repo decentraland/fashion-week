@@ -91,7 +91,7 @@ export const Agenda = () => {
                                 <h4>{item.name}</h4>
                                 <p>{item.description}</p>
                                 <time dateTime={item.start_at}>{item.timeUTC}</time>
-                                <a href={item.url}>{content?.agenda?.cta}
+                                <a href={`https://events.decentraland.org/event/?id=${item.id}`}>{content?.agenda?.cta}
                                     <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3.9585 9.5H15.0418" stroke="#FDC5DB" strokeWidth="1.97403"
