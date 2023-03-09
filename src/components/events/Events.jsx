@@ -83,14 +83,14 @@ export const Events = () => {
             <div className={'events__items ' + (isOverflowing ? 'scrolling' : '')} ref={scrollRef}>
                 <HorizonalMenu onChange={handleOverflow}>
                     {events.map((item, index) => (
-                        <div key={index} className={'item'} onClick={()=> window.location.href = item.url}>
+                        <div key={index} className={'item'} onClick={()=> window.location.href = `https://events.decentraland.org/event/?id=${item.id}`}>
                             <div className={'item__image'}>
                                 <div style={{"backgroundImage" : "url(" + item.image + ")"}}></div>
                             </div>
                             <div className={'item__text'}>
                                 <div>{item.name}</div>
                                 <div>{item.coordinate}</div>
-                                <button onClick={()=> window.location.href = item.url}><a href={item.url} target={'_blank'} rel={'noreferrer'}>{eventsContent?.cta}</a></button>
+                                <button onClick={()=> window.location.href = `https://events.decentraland.org/event/?id=${item.id}`}><a href={`https://events.decentraland.org/event/?id=${item.id}`} target={'_blank'} rel={'noreferrer'}>{eventsContent?.cta}</a></button>
                             </div>
                         </div>
                     ))}
