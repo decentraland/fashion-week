@@ -192,6 +192,7 @@
     right: 0;
 
     @include for-tablet-landscape-up {
+      display: none;
       height: 50vh;
       width: 39vh;
       top: var(--marquee-height);
@@ -205,6 +206,7 @@
   &:before {
     @include for-tablet-landscape-up {
       content: "";
+      display: none;
     }
     position: absolute;
     height: 50vh;
