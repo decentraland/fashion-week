@@ -35,12 +35,12 @@
   },
   "footer": {
     "twitter": "Twitter",
-    "twitterUrl": "https://www.twitter.com",
+    "twitterUrl": "https://twitter.com/decentraland",
     "discord": "Discord",
-    "discordUrl": "https://discord.com",
+    "discordUrl": "https://decentraland.org/discord/",
     "github": "Github",
-    "githubUrl": "https://github.io",
+    "githubUrl": "https://github.com/decentraland",
     "reddit": "Reddit",
-    "redditUrl": "https://reddit.com"
+    "redditUrl": "https://www.reddit.com/r/decentraland"
   }
 }
