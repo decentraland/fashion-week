@@ -10,8 +10,8 @@ export const Agenda = () => {
     const contentData = useContext(ContentContext);
 
     const content = contentData?.data;
-    const startDate = content?.landing.startDate && new Date(content?.landing.startDate);
-    const endDate = content?.landing.endDate && new Date(content?.landing.endDate);
+/*    const startDate = content?.landing.startDate && new Date(content?.landing.startDate);
+    const endDate = content?.landing.endDate && new Date(content?.landing.endDate);*/
 
     const {data} = useContext(DataContext);
     const events = data?.agenda?.data.map(evt => {
@@ -32,11 +32,11 @@ export const Agenda = () => {
             timeUTC,
             dateFormatted
         }
-    }).filter(evt => {
+    })/*.filter(evt => {
         const {date} = evt;
         let isValidDate = date >= startDate && date < endDate;
         return isValidDate;
-    }) || []
+    })*/ || []
 
 
     const dates = events?.reduce((acc, curr) => {

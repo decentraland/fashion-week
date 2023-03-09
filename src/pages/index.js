@@ -41,7 +41,7 @@ const IndexPage = (props) => {
     useEffect(() => {
         const fetchData = async () => {
 
-            let agenda = await fetch('https://events.decentraland.org/api/events')
+            let agenda = await fetch('https://events.decentraland.org/api/events?schedule=912e71d2-8e58-4597-99f1-c28cebb31205')
             agenda = await agenda.json();
 
             let marketPlace = await fetchMarketPlace();
