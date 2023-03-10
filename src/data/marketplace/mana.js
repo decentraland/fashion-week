@@ -16,8 +16,6 @@ export function formatWeiMANA(
         maximumFractionDigits
     })
 
-    console.log({wei, value, fixedValue})
-
     if (fixedValue === '0') {
         return getMinimumValueForFractionDigits(maximumFractionDigits).toString()
     }

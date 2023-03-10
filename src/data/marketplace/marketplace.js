@@ -40,9 +40,6 @@ exports.fetchMarketPlace = async () => {
         }, [])
         .map(item => {
             const priceFormatted = formatWeiMANA(item.price);
-
-            console.log({priceFormatted, price : item.price});
-
             const id = item.id.split('-')[0];
             const index = item.id.split('-')[1];
             const uri = `https://market.decentraland.org/contracts/${id}/items/${index}`

@@ -35,7 +35,7 @@ export const Header = () => {
               {header?.maps}
             </a>
           </li>
-          <li style={{ opacity: 0 }}>
+          <li>
             <a
               href={"#marketplace"}
               onClick={(e) => handleClick(e, "marketplace")}

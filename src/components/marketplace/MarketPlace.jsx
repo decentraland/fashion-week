@@ -31,7 +31,7 @@ export const MarketPlace = () => {
         scrollRef.current.scrollTo({left, behavior : "smooth"})
     }
 
-    return (
+    return ( marketPlace &&
         <section id={'marketplace'}>
             <div className={'marketplace__title'}>
 
