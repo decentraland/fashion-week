@@ -8,10 +8,6 @@ export const Events = () => {
 
     const content = useContext(ContentContext);
 
-    const contentData = content?.data;
-/*    const startDate = contentData?.landing.startDate && new Date(contentData?.landing.startDate);
-    const endDate =contentData?.landing.endDate && new Date(contentData?.landing.endDate);*/
-
     const eventsContent = content?.data?.events;
     const title = eventsContent?.title;
 
@@ -37,11 +33,7 @@ export const Events = () => {
             timeUTC,
             dateFormatted
         }
-    })/*.filter(evt => {
-        const {date} = evt;
-        let isValidDate = date >= startDate && date < endDate;
-        return isValidDate;
-    })*/ || []
+    }) || []
 
     const [isOverflowing, setIsOverflowing] = useState(false);
 

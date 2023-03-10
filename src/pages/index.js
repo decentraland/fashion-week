@@ -60,7 +60,7 @@ const IndexPage = (props) => {
           {/* TODO: no map yet */}
           {/* <Maps/> */}
           {/* TODO: not returning MVFW wearables */}
-          {/* <MarketPlace /> */}
+           <MarketPlace />
           <Events />
           <Teaser />
           {/* TODO: no partners yet */}
