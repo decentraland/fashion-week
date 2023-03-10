@@ -1,6 +1,6 @@
-export const MarketPlaceQuery = `
+export const getMarketPlaceQuery = (ids) => `
 query {
-    collections(where: { id_in: ["0xcdc94688aaaa4e6be1ef6fc271eb08873ab3df56"], isApproved: true }) {
+    collections(where: { id_in: ${JSON.stringify(ids)}, isApproved: true }) {
       id,
       name
       items {

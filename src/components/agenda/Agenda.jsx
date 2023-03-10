@@ -10,8 +10,6 @@ export const Agenda = () => {
     const contentData = useContext(ContentContext);
 
     const content = contentData?.data;
-/*    const startDate = content?.landing.startDate && new Date(content?.landing.startDate);
-    const endDate = content?.landing.endDate && new Date(content?.landing.endDate);*/
 
     const {data} = useContext(DataContext);
     const events = data?.agenda?.data.map(evt => {
@@ -32,12 +30,7 @@ export const Agenda = () => {
             timeUTC,
             dateFormatted
         }
-    })/*.filter(evt => {
-        const {date} = evt;
-        let isValidDate = date >= startDate && date < endDate;
-        return isValidDate;
-    })*/ || []
-
+    }) || []
 
     const dates = events?.reduce((acc, curr) => {
         const {dateFormatted} = curr;
@@ -49,7 +42,6 @@ export const Agenda = () => {
     const [currentDate, setCurrentDate] = useState(dates[0]);
 
     const eventsGrouped = events?.reduce((arr, evt) => {
-
         if (evt.dateFormatted === currentDate) {
             const location = evt.estate_name;
             if (!arr[location])
@@ -57,9 +49,7 @@ export const Agenda = () => {
 
             arr[location].push(evt);
         }
-
         return arr;
-
     }, {})
 
     useEffect(() => {
@@ -106,32 +96,8 @@ export const Agenda = () => {
 
                     </div>
 
-
                 ))}
 
-                {/* {events.map((item, index) => (
-
-                    item.dateFormatted === currentDate ?
-                        (<div key={index}>
-                            {item.estate_name &&
-                                <h3>{item.estate_name}</h3>
-                            }
-                            <h4>{item.name}</h4>
-                            <p>{item.description}</p>
-                            <time dateTime={item.start_at}>{item.timeUTC}</time>
-                            <a href={item.url}>{content?.agenda?.cta}
-                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3.9585 9.5H15.0418" stroke="#FDC5DB" strokeWidth="1.97403"
-                                          strokeLinejoin="round"/>
-                                    <path d="M9.5 3.9585L15.0417 9.50016L9.5 15.0418" stroke="#FDC5DB"
-                                          strokeWidth="1.97403" strokeLinejoin="round"/>
-                                </svg>
-                            </a>
-                        </div>) : null
-
-                ))}
-*/}
             </div>
         </section>
     )
