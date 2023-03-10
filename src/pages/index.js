@@ -64,7 +64,7 @@ const IndexPage = (props) => {
           <Events />
           <Teaser />
           {/* TODO: no partners yet */}
-          {/* <Partners/> */}
+           <Partners/>
           <FAQS />
         </main>
         <Footer />

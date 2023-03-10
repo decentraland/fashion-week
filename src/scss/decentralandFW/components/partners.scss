@@ -17,6 +17,7 @@
     display:flex;
     gap:var(--gutter);
     flex-wrap: wrap;
+  justify-content: center;
 
     @include for-tablet-landscape-up{
       //grid-template-columns: repeat(5, 1fr);
@@ -39,15 +40,15 @@
         background-image: url("/Frame%2017.png");
       }*/
 
-      &:nth-child(n + 17){
+    /*  &:nth-child(n + 17){
         display: none;
 
         @include for-tablet-landscape-up{
           display: block;
         }
-      }
+      }*/
 
-      flex: 1 0 auto;
+      flex: 0 0 auto;
       height:74px;
       width:120px;
       background-repeat: no-repeat;
