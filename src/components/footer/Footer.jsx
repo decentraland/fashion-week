@@ -90,13 +90,24 @@ export const Footer = () => {
               </a>
             </li>
             {/* <li><a href={'#maps'} onClick={(e) => handleClick(e, 'maps')}>Maps</a></li> */}
-            {/* <li><a href={'#marketplace'} onClick={(e) => handleClick(e, 'marketplace')}>MarketPlace</a></li> */}
+            <li>
+              <a
+                href={"#marketplace"}
+                onClick={(e) => handleClick(e, "marketplace")}
+              >
+                MarketPlace
+              </a>
+            </li>
             <li>
               <a href={"#events"} onClick={(e) => handleClick(e, "events")}>
                 Events
               </a>
             </li>
-            {/* <li><a href={'#partners'} onClick={(e) => handleClick(e, 'partners')}>Partners</a></li> */}
+            <li>
+              <a href={"#partners"} onClick={(e) => handleClick(e, "partners")}>
+                Partners
+              </a>
+            </li>
             <li>
               <a href={"#faqs"} onClick={(e) => handleClick(e, "faqs")}>
                 FAQ
