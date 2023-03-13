@@ -62,7 +62,9 @@ const IndexPage = (props) => {
           <MarketPlace />
           <Events />
           <Teaser />
+
           <Partners />
+
           <FAQS />
         </main>
         <Footer />
