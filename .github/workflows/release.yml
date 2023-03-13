@@ -26,9 +26,9 @@ jobs:
         run: npm run build
         env:
           GATSBY_SEGMENT_KEY: "julsNQhiodZFvdOZTXrrPiKmwX4CkHoa"
-          CONTENTFUL_SPACE_ID: "ea2ybdmmn1kv"
-          CONTENTFUL_ACCESS_TOKEN: "lx1c4KypDoWjLy2WT8vImClZch3EC-2QYrqBeN79XGs"
-          CONTENTFUL_ENVIRONMENT: "master"
+          GATSBY_CONTENTFUL_SPACE_ID: "ea2ybdmmn1kv"
+          GATSBY_CONTENTFUL_ACCESS_TOKEN: "lx1c4KypDoWjLy2WT8vImClZch3EC-2QYrqBeN79XGs"
+          GATSBY_CONTENTFUL_ENVIRONMENT: "master"
 
       - name: publishing documents
         uses: peaceiris/actions-gh-pages@v3
