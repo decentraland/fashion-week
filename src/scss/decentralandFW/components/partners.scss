@@ -1,70 +1,53 @@
 #partners {
 
   width: 100%;
-  min-height:100vh;
-  padding:0 0 4rem;
+  min-height: 100vh;
+  padding: 0 0 4rem;
 
-  .partners__grid{
+  .partners__grid {
     width: 100%;
-    max-width : var(--max-width);
+    max-width: var(--max-width);
     margin: 4rem auto;
 
-/*    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: var(--gutter);*/
-    padding:0 var(--gutter);
+    /*    display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: var(--gutter);*/
+    padding: 0 var(--gutter);
 
-    display:flex;
-    gap:var(--gutter);
+    display: flex;
+    gap: var(--gutter);
     flex-wrap: wrap;
-  justify-content: center;
+    justify-content: center;
 
-    @include for-tablet-landscape-up{
-      //grid-template-columns: repeat(5, 1fr);
-      //grid-template-columns: repeat(5, auto);
-
-      //grid-auto-flow: column;
+    --columns:3;
+    &:has(> div:nth-child(7)) { /* 6 or more elements */
+      --columns:4;
     }
+    &:has(> div:nth-child(13)) { /* 12 or more elements */
+      --columns:6;
+    }
+
+    --gap-count:calc( var(--columns) - 1 );
 
     > div {
 
-     /* &:nth-child(3n) {
-        background-image: url("/Frame%2015.png");
-      }
-
-      &:nth-child(3n + 1) {
-        background-image: url("/Frame%2016.png");
-      }
-
-      &:nth-child(3n + 2) {
-        background-image: url("/Frame%2017.png");
-      }*/
-
-    /*  &:nth-child(n + 17){
-        display: none;
-
-        @include for-tablet-landscape-up{
-          display: block;
-        }
-      }*/
-
       flex: 0 0 auto;
-      height:74px;
-      width:120px;
+      height: 74px;
+      //see https://stackoverflow.com/questions/72116170/account-for-gap-when-calculating-flex-basis
+      width: calc( calc( 100% / var(--columns) ) - calc( var(--gutter) / var(--columns) * var(--gap-count) ) );
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
-
     }
   }
 
-  &:after{
+  &:after {
     content: "";
-    background-image:url('/texture 2.png');
-    width : 320px;
-    height:252px;
+    background-image: url('/texture 2.png');
+    width: 320px;
+    height: 252px;
     display: block;
-    margin:0 auto;
+    margin: 0 auto;
     background-size: contain;
     background-repeat: no-repeat;
   }
