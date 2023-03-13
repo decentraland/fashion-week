@@ -3,9 +3,11 @@ const { createClient } = require("contentful");
 let contentfulClient;
 const getContentfulClient = () => {
   if (!contentfulClient) {
-    let space = "ea2ybdmmn1kv";
-    let accessToken = "lx1c4KypDoWjLy2WT8vImClZch3EC-2QYrqBeN79XGs";
-    let environment = "master";
+    let space = `${process.env.GATSBY_CONTENTFUL_SPACE_ID}`;
+    let accessToken = `${process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN}`;
+    let environment = `${process.env.GATSBY_CONTENTFUL_ENVIRONMENT}`;
+
+    console.log({environment})
 
     contentfulClient = createClient({
       space,

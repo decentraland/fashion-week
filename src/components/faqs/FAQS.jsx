@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { Marquee } from "../general/marquee/Marquee.jsx";
 import ArrowDown from "../svg/ArrowDown.svg";
 import { ContentContext } from "../../context/ContentContext.js";
-
+import {marked} from 'marked';
 export const FAQS = () => {
   const { data } = useContext(ContentContext);
   const faqs = data?.faq;
@@ -46,7 +46,7 @@ export const FAQS = () => {
                 {item.question}
                 <ArrowDown />
               </div>
-              <div className={"item__answer"}>{item.answer}</div>
+              <div className={"item__answer"} dangerouslySetInnerHTML={{__html : marked.parse(item.answer)}} />
             </div>
           ))}
       </div>
