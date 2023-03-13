@@ -16,13 +16,16 @@
     justify-content: center;
 
     --columns:3;
-    &:has(> div:nth-child(7)) { /* 6 or more elements */
-      --columns:4;
-    }
-    &:has(> div:nth-child(13)) { /* 12 or more elements */
-      --columns:6;
-    }
 
+    @include for-tablet-landscape-up{
+      &:has(> div:nth-child(7)) { /* 6 or more elements */
+        --columns:4;
+      }
+      &:has(> div:nth-child(13)) { /* 12 or more elements */
+        --columns:6;
+      }
+
+    }
     --gap-count:calc( var(--columns) - 1 );
 
     > div {
