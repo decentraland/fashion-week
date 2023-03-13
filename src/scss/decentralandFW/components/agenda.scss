@@ -111,18 +111,15 @@
     width: 100%;
     margin: 3rem auto 1rem;
     max-width: var(--max-width);
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2em 8em;
-    color: white;
-    justify-content: space-evenly;
-    justify-items: center;
 
-    @include for-tablet-landscape-up{
-
+    @include for-tablet-landscape-up {
+      column-count: 3;
     }
 
+    color: white;
+
     > div {
+      break-inside: avoid-column;
       justify-self: start;
 
       > * {

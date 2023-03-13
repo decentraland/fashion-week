@@ -49,6 +49,17 @@
         max-width: 45em;
         display: none;
         white-space: pre-line;
+
+        a {
+          color:var(--color-focus-primary);
+          opacity : 0.8;
+
+          @media (hover: hover) {
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
       }
 
       &.visible {
