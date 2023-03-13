@@ -35,7 +35,7 @@ export const Header = () => {
               {header?.maps}
             </a>
           </li>
-          <li style={{ opacity: 0 }}>
+          <li>
             <a
               href={"#marketplace"}
               onClick={(e) => handleClick(e, "marketplace")}
@@ -53,7 +53,7 @@ export const Header = () => {
               {header?.events}
             </a>
           </li>
-          <li style={{ opacity: 0 }}>
+          <li>
             <a href={"#partners"} onClick={(e) => handleClick(e, "partners")}>
               {header?.partners}
             </a>
@@ -115,13 +115,24 @@ export const Header = () => {
             </a>
           </li>
           {/* <li><a href={'#maps'} onClick={(e) => handleClick(e, 'maps')}>{header?.maps}</a></li> */}
-          {/* <li><a href={'#marketplace'} onClick={(e) => handleClick(e, 'marketplace')}>{header?.marketplace}</a></li> */}
+          <li>
+            <a
+              href={"#marketplace"}
+              onClick={(e) => handleClick(e, "marketplace")}
+            >
+              {header?.marketplace}
+            </a>
+          </li>
           <li>
             <a href={"#events"} onClick={(e) => handleClick(e, "events")}>
               {header?.events}
             </a>
           </li>
-          {/* <li><a href={'#partners'} onClick={(e) => handleClick(e, 'partners')}>{header?.partners}</a></li> */}
+          <li>
+            <a href={"#partners"} onClick={(e) => handleClick(e, "partners")}>
+              {header?.partners}
+            </a>
+          </li>
           <li>
             <a href={"#faqs"} onClick={(e) => handleClick(e, "faqs")}>
               {header?.faqs}
