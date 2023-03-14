@@ -1,8 +1,12 @@
 #partners {
 
   width: 100%;
-  min-height: 100vh;
+  //min-height: 100vh;
   padding: 0 0 4rem;
+
+  @include for-tablet-landscape-up{
+    padding:  0 0 4rem;
+  }
 
   .partners__grid {
     width: 100%;

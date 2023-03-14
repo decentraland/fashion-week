@@ -17,7 +17,7 @@ export const Agenda = () => {
 
         var month = date.getUTCMonth() + 1; //months from 1-12
         var day = date.getUTCDate();
-        var year = date.getUTCFullYear();
+        var year = (date.getUTCFullYear() + "").substring(2);
 
         const dateFormatted = year + '/' + month + '/' + day;
 
