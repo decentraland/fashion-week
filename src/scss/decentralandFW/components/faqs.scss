@@ -2,12 +2,21 @@
 
   width: 100%;
 
+  > div:not(.marquee) {
+    padding-bottom: 10rem;
+    background-image: url('/line 2.png');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: 0 auto;
+    max-width: var(--max-width);
+  }
+
   .faqs__items {
 
     padding: 4rem var(--gutter);
     width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
     color: white;
 
     > div {
@@ -26,7 +35,7 @@
         display: flex;
         flex-direction: row;
 
-        span {
+        span:first-of-type {
           display: block;
           font-weight: bold;
           margin-right:0.5em;
@@ -36,6 +45,8 @@
           height: 1em;
           transform-origin: center;
           transform: rotate(-90deg);
+
+          align-self: center;
           path{
             stroke: white;
           }
@@ -59,6 +70,10 @@
               opacity: 1;
             }
           }
+        }
+
+        img{
+          width:100%;
         }
       }
 

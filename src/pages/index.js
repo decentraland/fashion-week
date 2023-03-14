@@ -58,7 +58,7 @@ const IndexPage = (props) => {
           <About />
           <Agenda />
           {/* TODO: no map yet */}
-          {/* <Maps/> */}
+           <Maps/>
           <MarketPlace />
           <Events />
           <Teaser />

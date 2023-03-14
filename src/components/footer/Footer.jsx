@@ -83,13 +83,13 @@ export const Footer = () => {
           <div className={"footer__background-image__mobile"}></div>
         </div>
         <div className={"footer__links"}>
-          <ul className={"links__page"}>
+         {/* <ul className={"links__page"}>
             <li>
               <a href={"#agenda"} onClick={(e) => handleClick(e, "agenda")}>
                 Agenda
               </a>
             </li>
-            {/* <li><a href={'#maps'} onClick={(e) => handleClick(e, 'maps')}>Maps</a></li> */}
+             <li><a href={'#maps'} onClick={(e) => handleClick(e, 'maps')}>Maps</a></li>
             <li>
               <a
                 href={"#marketplace"}
@@ -113,7 +113,7 @@ export const Footer = () => {
                 FAQ
               </a>
             </li>
-          </ul>
+          </ul>*/}
           <ul className={"links__social"}>
             <li>
               <a href={footer?.twitterUrl}>{footer?.twitter}</a>
