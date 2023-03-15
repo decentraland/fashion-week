@@ -31,7 +31,7 @@ export const Header = () => {
               {header?.agenda}
             </a>
           </li>
-          <li style={{ opacity: 0 }}>
+          <li>
             <a href={"#maps"} onClick={(e) => handleClick(e, "maps")}>
               {header?.maps}
             </a>
@@ -68,7 +68,8 @@ export const Header = () => {
 
         <div className={"header__mobile " + (showOverlay ? "visible" : "")}>
           <LogoSVG />
-          <button className={"button-close"}
+          <button
+            className={"button-close"}
             onClick={() => {
               setShowOverlay(!showOverlay);
             }}
@@ -103,16 +104,34 @@ export const Header = () => {
               </defs>
             </svg>
           </button>
-          <button className={"button-open"}
-                  onClick={() => {
-                    setShowOverlay(!showOverlay);
-                  }}
+          <button
+            className={"button-open"}
+            onClick={() => {
+              setShowOverlay(!showOverlay);
+            }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 7.5H21" stroke="white" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round"/>
-              <path d="M3 16.5H21" stroke="white" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 7.5H21"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="square"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M3 16.5H21"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="square"
+                strokeLinejoin="round"
+              />
             </svg>
-
           </button>
         </div>
       </header>
@@ -126,7 +145,11 @@ export const Header = () => {
               {header?.agenda}
             </a>
           </li>
-           <li><a href={'#maps'} onClick={(e) => handleClick(e, 'maps')}>{header?.maps}</a></li>
+          <li>
+            <a href={"#maps"} onClick={(e) => handleClick(e, "maps")}>
+              {header?.maps}
+            </a>
+          </li>
           <li>
             <a
               href={"#marketplace"}
