@@ -19,7 +19,7 @@ import {fetchMarketPlace} from '../data/marketplace/marketplace.js';
 import {Teaser} from '../components/teaser/Teaser.jsx';
 import {fetchContent} from '../data/contentful/content.js';
 
-const SEGMENT_KEY = process.env.GATSBY_PUBLIC_SEGMENT_KEY
+const SEGMENT_KEY = process.env.GATSBY_SEGMENT_KEY 
 
 const IndexPage = (props) => {
     let tempJSON = props.data.contentfulJson;
