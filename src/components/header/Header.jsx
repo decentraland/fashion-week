@@ -16,9 +16,11 @@ export const Header = () => {
     setShowOverlay(false);
     if (isBrowser) {
       let element = document.getElementById(id);
-      element.scrollIntoView({
-        behavior: "smooth",
-      });
+      if(element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
     }
   };
 

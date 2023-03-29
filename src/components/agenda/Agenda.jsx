@@ -78,11 +78,11 @@ export const Agenda = () => {
       </ul>
       <div className="agenda__events">
         {Object.keys(eventsGrouped).map((key, index) => (
-          <div key={index}>
+          <>
             {key !== "null" && <h3>{key}</h3>}
 
             {eventsGrouped[key].map((item, itemIndex) => (
-              <div key={index + "-" + itemIndex}>
+              <div key={index + "-" + itemIndex} className={"event " + (itemIndex === eventsGrouped[key].length - 1 ? "last" : "")}>
                 <h4>{item.name}</h4>
                 <p>{item.description}</p>
                 <time dateTime={item.start_at}>{item.timeUTC}</time>
@@ -114,7 +114,7 @@ export const Agenda = () => {
                 </a>
               </div>
             ))}
-          </div>
+          </>
         ))}
       </div>
     </section>
