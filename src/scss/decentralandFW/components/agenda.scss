@@ -26,7 +26,7 @@
     padding: 0 var(--gutter);
     gap: 0.5rem;
 
-    @include for-tablet-landscape-up{
+    @include for-tablet-landscape-up {
       gap: 1rem;
     }
 
@@ -108,6 +108,7 @@
 
     padding: 0 var(--gutter);
 
+    color: white;
     width: 100%;
     margin: 3rem auto 1rem;
     max-width: var(--max-width);
@@ -116,62 +117,58 @@
       column-count: 3;
     }
 
-    color: white;
-
     > div {
-      break-inside: avoid-column;
-      justify-self: start;
+      margin-bottom: 1em;
+    }
+
+    > div.last {
+      margin-bottom: 2em;
+    }
+
+    h3 {
+      color: var(--color-focus-primary);
       padding-bottom: 2rem;
+    }
 
-      > * {
-        margin-bottom: 1em;
-      }
+    p {
+      margin-bottom: 1em;
+      font-size: 0.66rem;
+      text-overflow: ellipsis;
+      width: 20em;
+      white-space: nowrap;
+      overflow: hidden;
+    }
 
-      h3 {
-        color: var(--color-focus-primary);
-      }
+    time {
+      margin-bottom: 1em;
+      display: block;
+    }
 
-      p {
-        margin-bottom: 1em;
-        font-size: 0.66rem;
-        text-overflow: ellipsis;
-        width: 20em;
-        white-space: nowrap;
-        overflow: hidden;
-      }
+    a {
+      color: var(--color-pink);
+      text-transform: uppercase;
+      font-size: 0.66rem;
+      font-style: italic;
+      font-weight: 700;
+      height: fit-content;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
 
-      time {
-        margin-bottom: 1em;
-        display: block;
-      }
+      svg {
+        height: 0.66rem;
 
-      a {
-        color: var(--color-pink);
-        text-transform: uppercase;
-        font-size: 0.66rem;
-        font-style: italic;
-        font-weight: 700;
-        height: fit-content;
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
-        align-items: center;
-
-        svg {
-          height: 0.66rem;
-
-
-          path {
-            stroke: var(--color-pink);
-          }
+        path {
+          stroke: var(--color-pink);
         }
+      }
 
-        @media (hover: hover) {
-          &:hover {
-            svg {
-              transition: transform 200ms;
-              transform: translate(5px, 0);
-            }
+      @media (hover: hover) {
+        &:hover {
+          svg {
+            transition: transform 200ms;
+            transform: translate(5px, 0);
           }
         }
       }

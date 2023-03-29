@@ -7,8 +7,6 @@ const getContentfulClient = () => {
     let accessToken = `${process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN}`;
     let environment = `${process.env.GATSBY_CONTENTFUL_ENVIRONMENT}`;
 
-    console.log({environment})
-
     contentfulClient = createClient({
       space,
       accessToken,
